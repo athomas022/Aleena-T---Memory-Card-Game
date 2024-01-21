@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the Memory Card Game</title>
-    
     <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js" defer></script> -->
 </head>
 <body>
+    <h1>The Memory Card Game</h1>
     <div id = "welcome-container">Welcome Gamer! Test out that memory of yours in the Memory Card Game
        <div id = "enter-container"> Enter your name and click on <span class = "bold-text">Go!</span> to get this game started: <br>
         <input placeholder="Your name here" type="text" id="name-input"/> <br>
         <button class ="letsgo-btn" onclick="grabName(); openGame();">Go!</button>
        </div>
+       <div id = "instructions"> This are the instructions
+        <p1></p1>
+        <p2></p2>
+        <p3></p3>
+        <button class ="playgame-btn" onclick="openGame();">Let's Play!</button>
+       </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
