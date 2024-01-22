@@ -5,6 +5,9 @@ const cardsDeck = document.querySelector(".cards-container");
 let cardsTurned = 0;// This is the variable to capture the no. of cards turned during the game; i.e, one succesful match is a += 2 to this variable
 let unsuccessfulAttempts = 0;//This is the variable to track no. of unsucessful attempts; i.e., if the cards don't match, then +=1 to this variable
 let clickCounter = 0;//This is the variable to track the no. of clicks, i.e., +1 for the first card and +2 for the second card; will be cleared if a unsuccesful or succesful match happens
+let cardOne = {};//To temporaily save the first card that was clicked
+let cardTwo = {}//To temporaily save the second card that was clicked
+
 
 //Create the pairs of cards in an array of objects
 const memoryCardsPairs = [
@@ -41,24 +44,33 @@ for (let j=0; j<memoryCardsArray.length; j++){
 // Initialize the card-up and card-down classes as variables
 let cardUp= document.querySelectorAll(".card-up")
 let cardDown = document.querySelectorAll(".card-down")
-// console.log(cardUp);
-// console.log(cardDown);
+console.log(cardUp);
+console.log(cardDown);
 
 //Create the click event to turnover the cards
     function turnOverCard(selectCard){
     selectCard.preventDefault();
+    //If the card is down, remove that class list from this so as to display class list of card-up
+    if (cardDown[].classList.contains("card-down")){
+        cardDown[].classList.remove("card-down");
+    } 
+    cardDown[].classList.add("card-up");
     clickCounter +=1;
-
-
+    //Adding the selected card to the card open variable
+    let cardOneValue = selectCard.target.value;
+    //Adding the selected card to the card 2 variable
+    let cardTwoValue = selectCard.target.value
+    if (cardOneValue === cardTwoValue){// set up the comparison
     cardsturned += 2;//Add the count of the pair to the cardsturned function    
+    clickCounter -=2;//Clear the click counter
+    cardDown[].classList.remove("card-down");
+    } else if (cardOneValue !== cardTwoValue){
+        clickCounter -=2;
+        cardDown.classList.add("card-down");
+        unsuccessfulAttempts += 1;
+    }
     }
 
-
-
-
-
-
-// Task 2.4: keep score of how many cards are being turned correctly
 
 
 
