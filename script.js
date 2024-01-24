@@ -18,9 +18,9 @@ const memoryCardsPairs = [
     {cardName: "Grand Tenton", cardImage:"./Images/toan-chu-8dvphKlzJ40-unsplash.jpg"},
 ]
 //Create an array to iterate over by adding to the pair up on top
-const memoryCardsArray = [...memoryCardsPairs, ...memoryCardsPairs] //Combines the pairs above into the individual card objects; Watched the video in Reference 1;
+const memoryCardsArray = [...memoryCardsPairs, ...memoryCardsPairs] //Combines the pairs above into the individual card objects; Reviewed documentation referenced in 2
 
-//Randomize cards using the Fisher-Yates Shuffle algorithm; Reviewed documentation referenced in 2
+//Randomize cards using the Fisher-Yates Shuffle algorithm; Reviewed documentation referenced in 3
 function randomizer(){
     for (let i=memoryCardsArray.length-1; i>0; i--){//iterates through the loop backwards
         let r = Math.floor(Math.random()) * (i+1);// generates a random number between 0 and 11
@@ -43,23 +43,25 @@ for (let j=0; j<memoryCardsArray.length; j++){
     selectCard.preventDefault();
 
 //If the card is down, remove that class list from this so as to display class list of card-up
-if (clickCounter <= 2){
+if (clickCounter < 2){// As long as the clickcounter is less than 2  
     if (selectCard.target.children[0].classList.contains("unmatched")){
         selectCard.target.children[0].classList.replace("unmatched", "active");
         clickCounter +=1;
-        cardOne = selectCard.target.children[0].value;
-        if (clickCounter >1 && clickCounter <2){
-        cardTwo = selectCard.target.children[0].value;} //?? RESEARCH: Could look at if statement for the number of clicks; how do i grab unique values 
-        if(cardOne === cardTwo){
-            selectCard.target.children[0].classList.replace("active","matched");
-            cardsTurned +=2;
-            cardOne = "";
-            cardTwo = "";
-        } 
+        if (cardOne === this.children[0])//Watched video referenced in 1 for storing the values of the clicks into the 2 seperate variables
+            return;
+        if(!cardOne){
+        cardOne = this.children[0];
+        return;
+        }   cardTwo = this.children[0];
+            console.log(cardOne);
+            console.log(cardTwo);
+            matchCards();
+        }
+    console.log(clickCounter);
     } else if (selectCard.target.children[0].classList.contains("active")){
         cardOne = selectCard.target.children[0].value;
         if (clickCounter >1 && clickCounter <2){
-        cardTwo = selectCard.target.children[0].value;} //?? RESEARCH: Could look at if statement for the number of clicks; how do i grab unique values 
+        cardTwo = selectCard.target.children[0].value;} 
         if(cardOne === cardTwo){
             selectCard.target.children[0].classList.replace("active","matched");
             cardsTurned +=2;
@@ -67,16 +69,23 @@ if (clickCounter <= 2){
             cardTwo = "";
         } 
     } else if (selectCard.target.children[0].classList.contains("matched")){
-        cardInDeck.removeEventListener("click", turnOverCard);// RESEARCH: should i place this outside of this loop to access the variable in for loop
+        cardInDeck.removeEventListener("click", turnOverCard);
     }
-} else if (clickCounter > 2 && clickCounter <= 12){
-    selectCard.target,children[0].classList.replace("active","unmatched");
-    unsuccessfulAttempts +=1;
-    clickCounter = 0;
-} cardInDeck.removeEventListener("click", turnOverCard);
     }
-    
+//  } selectCard.target,children[0].classList.replace("active","unmatched");
+//     unsuccessfulAttempts +=1;
+//     clickCounter = 0;
+// } cardInDeck.removeEventListener("click", turnOverCard);
 
+    
+function matchCards(){
+    if(cardOne === cardTwo){
+        selectCard.target.children[0].classList.replace("active","matched");
+        cardsTurned +=2;
+        cardOne = "";
+        cardTwo = "";
+    } console.log("cards don't match");
+}
 
 
 
@@ -88,8 +97,9 @@ if (cardsTurned === 12){
 //PART 3: RESTART GAME OR EXIT
 
 //Reference
-// 1. Watched the video: https://www.youtube.com/watch?v=xWdkt6KSirw; timstamps: 5:23-8:15
-// 2. Reviewed the code in https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_random2
+// 1. Watched the video in 
+// 2. Reviewed the code in https://gomakethings.com/merging-arrays-and-objects-with-vanilla-javascript/ 
+// 3. Reviewed the code in https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_random2
 
 
 //GRAVEYARD
