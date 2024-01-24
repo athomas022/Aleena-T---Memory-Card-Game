@@ -22,7 +22,7 @@ const memoryCardsArray = [...memoryCardsPairs, ...memoryCardsPairs] //Combines t
 
 //Randomize cards using the Fisher-Yates Shuffle algorithm; Reviewed documentation referenced in 3
 function randomizer(){
-    for (let i=memoryCardsArray.length-1; i>0; i--){//iterates through the loop backwards
+    for (let i = memoryCardsArray.length - 1; i > 0; i--){//iterates through the loop backwards
         let r = Math.floor(Math.random()) * (i+1);// generates a random number between 0 and 11
         let w = memoryCardsArray[i];//variable to place the new/swaped index values so that the first idex values are not changed
         memoryCardsArray[i] = memoryCardsArray[r];// swapping the i and r index values
@@ -40,11 +40,11 @@ for (let j=0; j<memoryCardsArray.length; j++){
 }
 //Create the click event to turnover the cards
     function turnOverCard(selectCard){
-    selectCard.preventDefault();
+        console.log("clickCounter", clickCounter);
+        console.log(selectCard.target,childre[0]);
 //If the card is down, remove that class list from this so as to display class list of card-up
-if (clickCounter < 2){// As long as the clickcounter is less than 2
+if (clickCounter < 2){// As long as the clickcounter is less than 2:
     //If the cards selected are unmatched
-    console.log(clickCounter);
     if (selectCard.target.children[0].classList.contains("unmatched")){
         selectCard.target.children[0].classList.replace("unmatched", "active");
         clickCounter +=1;
@@ -54,39 +54,34 @@ if (clickCounter < 2){// As long as the clickcounter is less than 2
         cardOne = this.children[0];
         return;
         }   cardTwo = this.children[0];
-            console.log(cardOne);
-            console.log(cardTwo);
             matchCards();
-    //If the cards selected are an active class, check for whether it is the first card, allow for the second card and match the cards
+    //If the cards selected are an active class alert the user to select another card
     } else if (selectCard.target.children[0].classList.contains("active")){
-        clickCounter +=1;
-        if (cardOne === this.children[0])//Watched video referenced in 1 for storing the values of the clicks into the 2 seperate variables
-            return;
-        if(!cardOne){
-        cardOne = this.children[0];
-        return;
-        }   cardTwo = this.children[0];
-            console.log(cardOne);
-            console.log(cardTwo);
-            matchCards();
-    //If the cards selected are in the matched class, remove the click event for the class with matched
+        alert("Card has been selected! Please choose another card.");
+    //If the cards selected are in the matched class alert the user to select another card
     }else if (selectCard.target.children[0].classList.contains("matched")){
-        let cardSelected = document.querySelectorAll(".matched")
-        cardSelected.removeEventListener("click", turnOverCard);
+        alert("Card has already been MATCHED! Please choose another card.")
     }
     //If the clickCounter > 2, then move the active class cards to unmatched, clear our clickCounter and add an unsucessful attempt
-    } selectCard.target.children[0].classList.replace("active","unmatched");
-      unsuccessfulAttempts +=1;
-      clickCounter = 0;
+    } else {
+       document.querySelectorAll("img:not([matched])").forEach(function(element){
+        element.classList.replace("active", "unmatched")
+       })
+       cardOne = "";
+       cardTwo = "";
+       clickCounter = 0;
+    }
+       unsuccessfulAttempts +=1;
     }
     
 function matchCards(){
-    if(cardOne === cardTwo){
-        selectCard.target.children[0].classList.replace("active","matched");
+    if(cardOne.src === cardTwo.src){
+        cardOne.classList.replace("active", "matched");
+        cardTwo.classList.replace("active", "matched");
         cardsTurned +=2;
         cardOne = "";
         cardTwo = "";
-    } console.log("cards don't match");
+    } 
 }
 
 
@@ -143,4 +138,52 @@ if (cardsTurned === 12){
 // } else if (selectCard.target.classList.contains("show")){
 //     selectCard.target.children[0].style.display = "none";
 //     selectCard.target.classList.replace("show", "hidden");
+// }
+//If the card is down, remove that class list from this so as to display class list of card-up
+// if (clickCounter <= 2){// As long as the clickcounter is less than 2
+//     //If the cards selected are unmatched
+//     console.log(clickCounter);
+//     if (selectCard.target.children[0].classList.contains("unmatched")){
+//         selectCard.target.children[0].classList.replace("unmatched", "active");
+//         clickCounter +=1;
+//         if (cardOne === this.children[0])//Watched video referenced in 1 for storing the values of the clicks into the 2 seperate variables
+//             return;
+//         if(!cardOne){
+//         cardOne = this.children[0];
+//         return;
+//         }   cardTwo = this.children[0];
+//             console.log(cardOne);
+//             console.log(cardTwo);
+//             matchCards();
+//     //If the cards selected are an active class, check for whether it is the first card, allow for the second card and match the cards
+//     } else if (selectCard.target.children[0].classList.contains("active")){
+//         clickCounter +=1;
+//         if (cardOne === this.children[0])//Watched video referenced in 1 for storing the values of the clicks into the 2 seperate variables
+//             return;
+//         if(!cardOne){
+//         cardOne = this.children[0];
+//         return;
+//         }   cardTwo = this.children[0];
+//             console.log(cardOne);
+//             console.log(cardTwo);
+//             matchCards();
+//     //If the cards selected are in the matched class, remove the click event for the class with matched
+//     }else if (selectCard.target.children[0].classList.contains("matched")){
+//         let cardSelected = document.querySelectorAll(".matched")
+//         cardSelected.removeEventListener("click", turnOverCard);
+//     }
+//     //If the clickCounter > 2, then move the active class cards to unmatched, clear our clickCounter and add an unsucessful attempt
+//     } selectCard.target.children[0].classList.replace("active","unmatched");
+//       unsuccessfulAttempts +=1;
+//       clickCounter = 0;
+//     }
+    
+// function matchCards(){
+//     if(cardOne === cardTwo){
+//         selectCard.target.children[0].classList.replace("active","matched");
+//         cardsTurned +=2;
+//         cardOne = "";
+//         cardTwo = "";
+//         console.log("cards match")
+//     } console.log("cards don't match");
 // }
