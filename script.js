@@ -41,9 +41,10 @@ for (let j=0; j<memoryCardsArray.length; j++){
 //Create the click event to turnover the cards
     function turnOverCard(selectCard){
     selectCard.preventDefault();
-
 //If the card is down, remove that class list from this so as to display class list of card-up
-if (clickCounter < 2){// As long as the clickcounter is less than 2  
+if (clickCounter < 2){// As long as the clickcounter is less than 2
+    //If the cards selected are unmatched
+    console.log(clickCounter);
     if (selectCard.target.children[0].classList.contains("unmatched")){
         selectCard.target.children[0].classList.replace("unmatched", "active");
         clickCounter +=1;
@@ -56,27 +57,28 @@ if (clickCounter < 2){// As long as the clickcounter is less than 2
             console.log(cardOne);
             console.log(cardTwo);
             matchCards();
-        }
-    console.log(clickCounter);
+    //If the cards selected are an active class, check for whether it is the first card, allow for the second card and match the cards
     } else if (selectCard.target.children[0].classList.contains("active")){
-        cardOne = selectCard.target.children[0].value;
-        if (clickCounter >1 && clickCounter <2){
-        cardTwo = selectCard.target.children[0].value;} 
-        if(cardOne === cardTwo){
-            selectCard.target.children[0].classList.replace("active","matched");
-            cardsTurned +=2;
-            cardOne = "";
-            cardTwo = "";
-        } 
-    } else if (selectCard.target.children[0].classList.contains("matched")){
-        cardInDeck.removeEventListener("click", turnOverCard);
+        clickCounter +=1;
+        if (cardOne === this.children[0])//Watched video referenced in 1 for storing the values of the clicks into the 2 seperate variables
+            return;
+        if(!cardOne){
+        cardOne = this.children[0];
+        return;
+        }   cardTwo = this.children[0];
+            console.log(cardOne);
+            console.log(cardTwo);
+            matchCards();
+    //If the cards selected are in the matched class, remove the click event for the class with matched
+    }else if (selectCard.target.children[0].classList.contains("matched")){
+        let cardSelected = document.querySelectorAll(".matched")
+        cardSelected.removeEventListener("click", turnOverCard);
     }
+    //If the clickCounter > 2, then move the active class cards to unmatched, clear our clickCounter and add an unsucessful attempt
+    } selectCard.target.children[0].classList.replace("active","unmatched");
+      unsuccessfulAttempts +=1;
+      clickCounter = 0;
     }
-//  } selectCard.target,children[0].classList.replace("active","unmatched");
-//     unsuccessfulAttempts +=1;
-//     clickCounter = 0;
-// } cardInDeck.removeEventListener("click", turnOverCard);
-
     
 function matchCards(){
     if(cardOne === cardTwo){
@@ -97,7 +99,7 @@ if (cardsTurned === 12){
 //PART 3: RESTART GAME OR EXIT
 
 //Reference
-// 1. Watched the video in 
+// 1. Watched the video in https://www.youtube.com/watch?v=xWdkt6KSirw 
 // 2. Reviewed the code in https://gomakethings.com/merging-arrays-and-objects-with-vanilla-javascript/ 
 // 3. Reviewed the code in https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_random2
 

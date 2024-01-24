@@ -40,12 +40,14 @@ body {
     width: 200px;
     z-index: 1;
     display: none;
+    display: hidden;
     background-color: black;
 }
 img {
     height: 200px;
     width: 200px;
-    display: none;
+    display: inline;
+    visibility: hidden;
 }
 
 .active{
@@ -53,6 +55,7 @@ img {
     width: 200px;
     z-index: 1;
     display: inline;
+    visibility: visible;
 }
 
 .matched{
@@ -60,6 +63,7 @@ img {
     width: 200px;
     z-index: 1;
     display: inline;
+    visibility: visible;
 }
 
 /* GRAVEYARD
