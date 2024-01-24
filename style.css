@@ -6,42 +6,47 @@
 
 body {
     font-family: Helvetica;
-    background-color: aqua;
-    
+    background-color: black;
+    color: beige;
+    display: block;
+    text-align: center;
+
+   
 }
 
 .cards-container{
-    background-color: aqua;
-    width: 100vw;
+    background-color: #556B2F;
+    background-size: cover;
+    width:  100vw;
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 3;
     gap: 30px 10px;
-    align-items: stretch;
     align-content: center;
-    position: relative;
-    border: blue;
-    border-style: double;
+    /* position: absolute; */
+    justify-content: center;
  }
 
 .cards{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     background-color: black;
+    border-style: groove;
+    border-width: 5px;
 }
 
 .unmatched{
-    height: 200px;
-    width: 200px;
+    /* height: 200px;
+    width: 200px; */
     z-index: 1;
     display: none;
     display: hidden;
-    background-color: black;
+    /* background-color: black; */
 }
 img {
     height: 200px;
@@ -51,21 +56,24 @@ img {
 }
 
 .active{
-    height: 200px;
-    width: 200px;
+    /* height: 200px;
+    width: 200px; */
     z-index: 1;
     display: inline;
     visibility: visible;
 }
 
 .matched{
-    height: 200px;
-    width: 200px;
+    /* height: 200px; */
+    /* width: 200px; */
     z-index: 1;
     display: inline;
     visibility: visible;
 }
 
+.won{
+    visibility: hidden;
+}
 /* GRAVEYARD
 /* .card-down{
     background-color: black;

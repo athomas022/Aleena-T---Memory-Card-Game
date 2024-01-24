@@ -4,7 +4,7 @@ const cardsDeck = document.querySelector(".cards-container");
 //Set up the variables to track the game
 let cardsTurned = 0;// This is the variable to capture the no. of cards turned during the game; i.e, one succesful match is a += 2 to this variable
 let unsuccessfulAttempts = 0;//This is the variable to track no. of unsucessful attempts; i.e., if the cards don't match, then +=1 to this variable
-let clickCounter = 0;//This is the variable to track the no. of clicks, i.e., +1 for the first card and +2 for the second card; will be cleared if a unsuccesful or succesful match happens
+let clickCounter = null;//This is the variable to track the no. of clicks, i.e., +1 for the first card and +2 for the second card; will be cleared if a unsuccesful or succesful match happens
 let cardOne = "";//To temporaily save the first card object that was clicked
 let cardTwo = ""//To temporaily save the second card object that was clicked
 
@@ -41,7 +41,7 @@ for (let j=0; j<memoryCardsArray.length; j++){
 //Create the click event to turnover the cards
     function turnOverCard(selectCard){
         console.log("clickCounter", clickCounter);
-        console.log(selectCard.target,childre[0]);
+        console.log(selectCard.target.children[0]);
 //If the card is down, remove that class list from this so as to display class list of card-up
 if (clickCounter < 2){// As long as the clickcounter is less than 2:
     //If the cards selected are unmatched
@@ -69,11 +69,11 @@ if (clickCounter < 2){// As long as the clickcounter is less than 2:
        })
        cardOne = "";
        cardTwo = "";
-       clickCounter = 0;
+       clickCounter -=2;
     }
        unsuccessfulAttempts +=1;
     }
-    
+
 function matchCards(){
     if(cardOne.src === cardTwo.src){
         cardOne.classList.replace("active", "matched");
