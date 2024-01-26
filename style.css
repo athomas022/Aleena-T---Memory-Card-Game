@@ -6,8 +6,8 @@
 
 body {
     font-family: Helvetica;
-    background-color: black;
-    color: beige;
+    background-color: #5c4d4d;
+    color: #f2f1e7;
     display: block;
     text-align: center;
 
@@ -15,7 +15,7 @@ body {
 }
 
 .cards-container{
-    background-color: #556B2F;
+    background-color: #5c4d4d;
     background-size: cover;
     width:  100vw;
     height: 100vh;
@@ -35,7 +35,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background-color: black;
+    background-image: url(./Images/daniel-dan-CWHZxcjDlpk-unsplash.jpg);
     border-style: groove;
     border-width: 5px;
 }
@@ -49,10 +49,15 @@ body {
     /* background-color: black; */
 }
 img {
-    height: 200px;
-    width: 200px;
+    height: 225px;
+    width: 225px;
     display: inline;
     visibility: hidden;
+    border-style: solid;
+    border-style: groove;
+    border-color: beige;
+    border-width: 10px;
+
 }
 
 .active{
