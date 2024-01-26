@@ -15,17 +15,19 @@ body {
 }
 
 .cards-container{
-    background-color: #5c4d4d;
+    background-color:  #5c4d4d;;
     background-size: cover;
-    width:  100vw;
-    height: 100vh;
+    width:  80vw;
+    height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 3;
-    gap: 30px 10px;
+    gap: 60px;
+    margin: 30px auto;
     align-content: center;
-    /* position: absolute; */
+    position: relative;
     justify-content: center;
+    justify-self: center;
  }
 
 .cards{
@@ -38,15 +40,14 @@ body {
     background-image: url(./Images/daniel-dan-CWHZxcjDlpk-unsplash.jpg);
     border-style: groove;
     border-width: 5px;
+    justify-self: center;
 }
 
 .unmatched{
-    /* height: 200px;
-    width: 200px; */
     z-index: 1;
     display: none;
     display: hidden;
-    /* background-color: black; */
+
 }
 img {
     height: 225px;
@@ -57,35 +58,18 @@ img {
     border-style: groove;
     border-color: beige;
     border-width: 10px;
-
 }
 
 .active{
-    /* height: 200px;
-    width: 200px; */
     z-index: 1;
     display: inline;
     visibility: visible;
 }
 
 .matched{
-    /* height: 200px; */
-    /* width: 200px; */
     z-index: 1;
     display: inline;
     visibility: visible;
 }
 
-.won{
-    visibility: hidden;
-}
-/* GRAVEYARD
-/* .card-down{
-    background-color: black;
-    height: 200px;
-    width: 200px;
-    z-index: 10;
-    position: relative;
-    display: block;
-} */
 

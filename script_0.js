@@ -2,7 +2,7 @@
 //TASK 1.1: CREATING A GAMER OBJECT
  const gamer = {
         gamerName: "", // Setting the name to no value and to be populated by gamer
-        winStatus: false, // default is that they have not won at the begining of the game
+        // winStatus: false, // default is that they have not won at the begining of the game
     };
 
 //TASK 1.2: CREATING WELCOME PROMPT IN THE WBEPAGE
