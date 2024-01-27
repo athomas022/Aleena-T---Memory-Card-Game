@@ -8,6 +8,8 @@ let unsuccessfulAttempts = 0;//This is the variable to track no. of unsucessful 
 let clickCounter = 0;//This is the variable to track the no. of clicks, i.e., +1 for the first card and +2 for the second card; will be cleared if a unsuccesful or succesful match happens
 let cardOne = "";//To temporaily save the first card object that was clicked
 let cardTwo = ""//To temporaily save the second card object that was clicked
+let showAttemptsLeft = document.querySelector(".attempts_left");//Setup of the Attempts left calc and display inspired by the video referenced in 1
+showAttemptsLeft.innerHTML = "5";
 
 //Create the pairs of cards in an array of objects; Watched video referenced in 1
 //a. Create all possible options of cards
@@ -58,14 +60,13 @@ if (clickCounter < 2){// As long as the clickcounter is less than 2:
             matchCards();
             //Set a timer if the clickCounter has hit 2
             if (clickCounter === 2){
-                let activateTimer // Researched the documentation referenced in 3 for the timer functionality
+                let activateTimer // Reviewed the documentation referenced in 3 for the timer functionality
                 function pauseAfterSecondClick(){
                     activateTimer = setTimeout(resetTheCards, 1000);
                 }
                 pauseAfterSecondClick();
             }
-    //If the clickCounter > 2, then move the active class cards to unmatched, clear our clickCounter and add an unsucessful attempt  
-function resetTheCards(){
+    function resetTheCards(){
        document.querySelectorAll("img:not([matched])").forEach(function(element){ 
         element.classList.replace("active", "unmatched")})
        cardOne = "";
@@ -78,22 +79,14 @@ function resetTheCards(){
 }else if (selectCard.target.classList.contains("matched")){ 
     window.alert("Card has already been MATCHED! Please choose another card.")
 }
-}
-
-       unsuccessfulAttempts +=1;
-       let showAttemptsLeft = document.querySelector(".attempts_left");//Setup of the Attempts left calc and dsiplay inspired by the video referenced in 1
-       let attemptsLeft = 5 - unsuccessfulAttempts;
-       showAttemptsLeft.innerHTML=`${attemptsLeft}`; 
-       if (unsuccessfulAttempts >5){
-        window.alert("Sorry, but that's too many attempts. Try again!")
-        window.location.reload();
     }
     // Task 2.5: Redirect the user when this threshold has been reached
 if (cardsTurned === 12){ 
     window.alert("You've Won!")
     } 
-
 }
+
+
 function matchCards(){
     if(cardOne.src === cardTwo.src){
         cardOne.classList.replace("active", "matched");
@@ -101,12 +94,18 @@ function matchCards(){
         cardsTurned +=2;
         cardOne = "";
         cardTwo = "";
-    }
+    } else {
+        unsuccessfulAttempts +=1;
+        console.log(unsuccessfulAttempts);
+        let attemptsLeft = 5;
+        attemptsLeft -= unsuccessfulAttempts;
+        showAttemptsLeft.innerHTML=`${attemptsLeft}`; 
+        if (unsuccessfulAttempts >=5){
+                window.alert("Sorry, but that's too many attempts. Try again!")
+                window.location.reload();
 }
-//PART 3: DISPLAY THE ATTEMPTS LEFT
-
-
-
+}
+}
 
 //PART 4: RESTART GAME OR EXIT
 function exitGame(){
