@@ -38,7 +38,7 @@ The game variables utilized to hold the values and be utilized in the functions 
 - cardOne and cardTwo: To hold the values of the click events (i.e., capture which card was clicked) and utilized in the matchCards function.
 - showAttempts: To track the attempts left for the gamer onsreen.
 
-4. Gaming logic
+3. Gaming logic
 - Dynamically created an array of 12 cards (divs) using an array of 6 pairs of identical images that are appended to the parent div "container"
 - Utilized the Fischer-Yates shuffle method in the randomizer function which is invoked when the page is loaded to shuffle the position of the cards every time the page is loaded.
 - Created a gaming logic in the turnOverCard function which states that:
