@@ -42,13 +42,13 @@ The game variables utilized to hold the values and be utilized in the functions 
 - Dynamically created an array of 12 cards (divs) using an array of 6 pairs of identical images that are appended to the parent div "container"
 - Utilized the Fischer-Yates shuffle method in the randomizer function which is invoked when the page is loaded to shuffle the position of the cards every time the page is loaded.
 - Created a gaming logic in the turnOverCard function which states that:
-a. All cards are created with the unmatched class (i.e., img hidden). Clicking them will turn them into active class and show the image.
-b. If the clickCounter is less than 2 (i.e., game is actively played), capture the child values of the click event target and store them in the cardOne and cardTwo variables AND invoke the matchCards function.
-c. The matchCards function will match the img source of cardOne and cardTwo and if matched, will chnage the class to matched, add +2 to the cardsturned and clear out the clickCounter for the next round of matches. If the cards don't match, a +1 is added to the unsuccessfulAttempts, it is tracked on screen with the showAttempts (showAttempts - unsuccessfulAttempts).
-d. Also if the clickCounter is less than 2, and an active class and matched class are selected, an alert will tell the gamer to choose another card.
-e. A timer will be invoked, if the 2 cards that are active BUT are false in the matchCards function.
-f. If unsuccesful attempts > 5, an alert to try again is displayed and the page is loaded again with reshffled cards.
-g. If cardsTurned === 12, then the you'd won alert with the gamer's entered name is displayed.
+  - All cards are created with the unmatched class (i.e., img hidden). Clicking them will turn them into active class and show the image.
+  - If the clickCounter is less than 2 (i.e., game is actively played), capture the child values of the click event target and store them in the cardOne and cardTwo variables AND invoke the matchCards function.
+  - The matchCards function will match the img source of cardOne and cardTwo and if matched, will chnage the class to matched, add +2 to the cardsturned and clear out the clickCounter for the next round of matches. If the cards don't match, a +1 is added to the unsuccessfulAttempts, it is tracked on screen with the showAttempts (showAttempts - unsuccessfulAttempts).
+  - Also if the clickCounter is less than 2, and an active class and matched class are selected, an alert will tell the gamer to choose another card.
+  - A timer will be invoked, if the 2 cards that are active BUT are false in the matchCards function.
+  - If unsuccesful attempts > 5, an alert to try again is displayed and the page is loaded again with reshffled cards.
+  - If cardsTurned === 12, then the you'd won alert with the gamer's entered name is displayed.
 
 
 ## Unsolved Problems / Major Hurdles:
