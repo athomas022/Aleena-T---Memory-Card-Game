@@ -29,17 +29,21 @@ This is a web-based desktop friendly game. Access the game live on github: [Memo
 
 ## Approach taken:
 1. Nagivation:
-- Two html pages were created and the gamer can navigate between them with the "let's play" button and the "Exit Game" button.
+- Two html pages were created and the gamer can navigate between them with the "let's play" button and the "Exit Game" button. The "Exit Game" clears the localSotrage value.
 - The "Go!" button will cpature the gamer's name and store it to localStorage and show instructions prior to getting to the second html
 - The "Play Again" button will let the gamer continue to play the game with their username (i.e., it keeps the user on the same html page) and invokes the randomizer function(i.e., on loading the page)
 
-
-3. Game variables
-
+2. Game variables:
+The game variables utilized to hold the values and be utilized in the functions include:
+- cardsTurned. This is the variable to capture the no. of cards turned during the game; i.e, one succesful match is a += 2 to this variable
+- unsuccessfulAttempts. This is the variable to track no. of unsucessful attempts; i.e., if the cards don't match, then +=1 to this variable. This also is utilized to track the attempts left that is shown on the game page.
+- clickCounter. This is the variable to track the no. of clicks, i.e., +1 for the first card and +2 for the second card; will be cleared if a unsuccesful or succesful match happens. This was utilized to tell the script when there was an active play and utilized in determining when to invoke the function, display certain alerts (already a matched card etc.) and add to unsuccesful attempts.
+- cardOne and cardTwo: To hold the values of the click events (i.e., capture which card was clicked) and utilized in the matchCards function.
+- showAttempts: To track the attempts left for the gamer onsreen.
 
 4. Gaming logic
-
-
+- Dynamically created an array of 12 cards using an array of 6 pairs of identical images.
+- Utilized the Fischer-Yates shuffle method in the randomizer function which is invoked when the page is loaded. 
 
 
 
