@@ -21,7 +21,7 @@ body {
     grid-template-columns: 20% 20% 20% 20%;
     grid-template-rows: 33% 33% 33%;
     grid-gap: 20px; /* Referenced the video in reference 1 */
-    padding-top: 30px;  
+    padding-top: 15px;  
     margin: auto;
     align-content: center;
     position: relative;
@@ -73,17 +73,36 @@ img {
 
 
 .bold-text{
+    font-size: x-large;
+    color: #66bfbf;
+    font-style: oblique;
+}
+
+#name-input{
     font-size: large;
     font-style: oblique;
+    text-align: center;  
 }
 
 #welcome-container{
     display: block;
+    width: 50vw;
+    padding: 5px;
+    position: absolute; /* Reviewed the documentation in reference 2*/
+    top: 17%; /* Reviewed the documentation in reference 2*/
+    right: 25%;/* Reviewed the documentation in reference 2*/
+    margin: 5px;
 }
 
 
 #instructions{
     display: none;
+    width: 50vw;
+    padding: 5px;
+    margin: 5px;
+    position: absolute;/* Reviewed the documentation in reference 2*/
+    top: 15%;/* Reviewed the documentation in reference 2*/
+    right: 25%;/* Reviewed the documentation in reference 2*/
 }
 
 .gameButtons{ /* Referenced the video in reference 1 */
@@ -100,5 +119,32 @@ img {
     color: #fdb44b;
 }
 
+.letsgo-btn{
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px 10px;
+    color: #f6eedf;
+    background-color: #085f63;
+    font-size: large;
+}
+
+.playgame-btn{
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px 10px;
+    color: #f6eedf;
+    background-color: #085f63;
+    font-size: large;
+}
+
+.heading{
+    padding: 100px;
+}
+
+input{
+    margin: 20px;
+}
+
 /* References:
-1. Watched the video in https://www.youtube.com/watch?v=xWdkt6KSirw  */
+1. Watched the video in https://www.youtube.com/watch?v=xWdkt6KSirw  
+2. Reviewed the documentation in https://www.w3schools.com/howto/howto_css_center-vertical.asp */

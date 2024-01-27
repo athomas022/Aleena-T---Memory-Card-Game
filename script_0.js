@@ -24,5 +24,5 @@ window.location.href = "./index_2.html"
 }
 
 
-console.log(localStorage);
+// console.log(localStorage);
 // console.log(openGame);

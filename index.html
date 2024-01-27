@@ -8,16 +8,14 @@
     <script src="script_0.js" defer></script>
 </head>
 <body>
-    <h1>The Memory Card Game</h1>
-    <div id="welcome-container">Welcome Gamer! Test out that memory of yours in the Memory Card Game
-       <div id = "enter-container"> Enter your name and click on <span class = "bold-text">Go!</span> to get this game started: <br>
+    <h1 class="heading">The Memory Card Game</h1>
+    <div id="welcome-container">
+        <h2>Welcome Gamer! Test out that memory of yours in the Memory Card Game <br> Enter your name and click on <span class = "bold-text">Go!</span> to get this game started: <br> </h2>
         <input placeholder="Your name here" type="text" id="name-input"/> <br>
         <button class ="letsgo-btn" onclick="showInstructions();">Go!</button>
        </div> </div>
-    <div id="instructions"> This are the instructions <br>
-        <p1></p1>
-        <p2></p2>
-        <p3></p3>
+    <div id="instructions"><br>
+        <h2>There are 12 cards with 6 pairs of identical cards that are shuffled randomly. Click on an individual card to reveal the image hidden underneath. Keep clicking to match the cards with the identical images to win the game. Careful though, you'll only be able to see 2 revealed cards at a time so pay attention and remember those card positions.<br> Simple enough right? Well, you'll only have 5 attempts to match all 6 pairs correctly. Don't fret if you can't match the cards the first time, you can "Play again" but with a new set of shuffled cards. Now, are you up for the challenge?</h2>
         <br>
         <button class ="playgame-btn" onclick="openGame();">Let's Play!</button>
     </div>
