@@ -1,4 +1,3 @@
-
 // PART 2: PLAY THE GAME
 //Select the parent container to create the cards
 const cardsDeck = document.querySelector(".cards-container");
@@ -10,6 +9,8 @@ let cardOne = "";//To temporaily save the first card object that was clicked
 let cardTwo = ""//To temporaily save the second card object that was clicked
 let showAttemptsLeft = document.querySelector(".attempts_left");//Setup of the Attempts left calc and display inspired by the video referenced in 1
 showAttemptsLeft.innerHTML = "5";
+let gamerName = localStorage.getItem("gamerName");//Researched how to utilized the localStorage function by watching video referenced in 4
+
 
 //Create the pairs of cards in an array of objects; Watched video referenced in 1
 //a. Create all possible options of cards
@@ -56,7 +57,7 @@ if (clickCounter < 2){// As long as the clickcounter is less than 2:
         cardOne = this.children[0];
         // console.log(clickCounter);
         return;
-        }   cardTwo = this.children[0];
+        }  cardTwo = this.children[0];
             matchCards();
             //Set a timer if the clickCounter has hit 2
             if (clickCounter === 2){
@@ -82,7 +83,7 @@ if (clickCounter < 2){// As long as the clickcounter is less than 2:
     }
     // Task 2.5: Redirect the user when this threshold has been reached
 if (cardsTurned === 12){ 
-    window.alert("You've Won!")
+    window.alert(`${gamerName}, You've Won!`)
     } 
 }
 
@@ -94,22 +95,23 @@ function matchCards(){
         cardsTurned +=2;
         cardOne = "";
         cardTwo = "";
+        console.log(cardsTurned);
     } else {
         unsuccessfulAttempts +=1;
-        console.log(unsuccessfulAttempts);
+        // window.alert("Wrong match. Pick another card!")
         let attemptsLeft = 5;
         attemptsLeft -= unsuccessfulAttempts;
         showAttemptsLeft.innerHTML=`${attemptsLeft}`; 
-        if (unsuccessfulAttempts >=5){
-                window.alert("Sorry, but that's too many attempts. Try again!")
-                window.location.reload();
+        // if (unsuccessfulAttempts >=5){
+        //         window.alert("Sorry, but that's too many attempts. Try again!")
+        //         window.location.reload();
 }
 }
-}
-
+// }
 //PART 4: RESTART GAME OR EXIT
 function exitGame(){
     window.location.href = "./index.html"
+    gamerName = "";
 }
 function playAgain(){
     window.location.reload();
@@ -119,5 +121,6 @@ function playAgain(){
 // 1. Watched the video in https://www.youtube.com/watch?v=xWdkt6KSirw 
 // 2. Reviewed the code in https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_random2
 // 3. Reviewed the code in https://www.freecodecamp.org/news/javascript-timing-events-settimeout-and-setinterval/ 
+// 4. Watched the video in https://www.youtube.com/watch?v=AUOzvFzdIk4 
 
 

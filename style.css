@@ -73,3 +73,16 @@ img {
 }
 
 
+.bold-text{
+    font-size: large;
+    font-style: oblique;
+}
+
+#welcome-container{
+    display: block;
+}
+
+
+#instructions{
+    display: none;
+}
