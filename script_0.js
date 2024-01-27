@@ -7,8 +7,8 @@ let welcomeContainer = document.querySelector("#welcome-container");
 let instructionsContainer = document.querySelector("#instructions");
 // function below will execute when the lets go button on the html is clicked
 function showInstructions(){
-    localStorage.setItem("gamerName", gamerInput.value);
-if (welcomeContainer.style.display === "block"){
+    localStorage.setItem("gamerName", gamerInput.value);//Researched how to utilize the localStorage function by watching video referenced in 2
+if (welcomeContainer.style.display === "block"){// Reviewed the hide and toggle documentaion in reference 1
     welcomeContainer.style.display = "none";
     instructionsContainer.style.display = "block";
 } else {
@@ -26,3 +26,7 @@ window.location.href = "./index_2.html"
 
 // console.log(localStorage);
 // console.log(openGame);
+
+//References:
+//1. Reviewed the documentation in https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+//2. Watched the video in https://www.youtube.com/watch?v=AUOzvFzdIk4 
