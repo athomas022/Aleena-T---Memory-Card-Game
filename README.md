@@ -1,13 +1,9 @@
 # Unit 1 Project - Memory Card Game
 ![Memory Card Game](https://github.com/athomas022/Aleena-T---Memory-Card-Game/assets/152939696/6daa1b54-91b8-4a85-abfa-c28de5a3d20d)
 
-
-
-
 ## Technologies Used
 Javascript, HTML, CSS
 <br>
-
 
 ## Installation Instructions
 This is a web-based desktop friendly game. Access the game live on github: [Memory Card Game](https://athomas022.github.io/Aleena-T---Memory-Card-Game/).
@@ -31,25 +27,37 @@ This is a web-based desktop friendly game. Access the game live on github: [Memo
 <br>
 
 
-### Unsolved Problems / Major Hurdles:
------------------------------
+## Approach taken:
 
 
+## Unsolved Problems / Major Hurdles:
+### Major Hurdles:
+1. The most challenging aspects of this project was coding the gaming logic, specifically:
+- Holding the values of the 2 click events in seperate variables prior to performing the match functions. Resolveed this by researching the appropriate use of the this function.
+- Sequence the nested if...else statements inside the flipCard function. Resolved this by brainstorming and playing around with the sequencing of the functions/ if...else statements.
+- 2 unmatched cards would not flip until the 3rd card which lead for a sub-par user experince.So, introduced a timer to flip the unmatched cards after 1 second.
+- Coming up with a shuffle technique which would randomize the cards on the game page loading. Researched the Fischer-Yates method and utilized this for the logic.
+- Matching cards function was not working as intended with utilizing the target.children[0] syntax for cardOne and cardTwo. This was resolved by calling the image source of cardOne and cardTwo.
+2. Holding the gamer input value till the end to show it in the win alert at the end. This was resolved by utilizing the localStorage method.
 
-Unresolved Stretch Goals: <br>
+
+### Unresolved Problems
+1. The last card before a win or a try again alert will flip after the win or try again prompt.
+2. It is not mobile friendly yet.
+
+### Unresolved Stretch Goals: <br>
 1. Create Levels to the game where as the levels progress:
-   a. the number of cards increases.
-   b. the timer decreases.
+   - the number of cards increases.
+   - the timer decreases.
 2. Refine the aesthetic of the webpage (+add animation).
 3. At the beginning of the game, have a "walk-through" demo instead of instructions.
+4. Do awau with the 2 Javascript files (i.e., merge them into one, do away with localStorage and utilize the hide and show toggle on the different containers to navigate to the game page
 
-
-<br>
-### References
------------------------------
-1. Watched the video in https://www.youtube.com/watch?v=xWdkt6KSirw  
-2. Reviewed the documentation in https://www.w3schools.com/howto/howto_css_center-vertical.asp
-3. Reviewed the documentation in https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
-4. Watched the video in https://www.youtube.com/watch?v=AUOzvFzdIk4
-5. Reviewed the code in https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_random2
-6. Reviewed the code in https://www.freecodecamp.org/news/javascript-timing-events-settimeout-and-setinterval/ 
+## References
+1. Watched video on [YouTube](https://www.youtube.com/watch?v=xWdkt6KSirw)  
+2. Reviewed the documentation on [W3schools](https://www.w3schools.com/howto/howto_css_center-vertical.asp)
+3. Reviewed the documentation in [W3schools](https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp)
+4. Watched the on [YouTube](https://www.youtube.com/watch?v=AUOzvFzdIk4)
+5. Reviewed the code in documentation on [W3shools](https://www.w3schools.com/js/tryit.asp?filename=tryjs_array_sort_random2)
+6. Reviewed documentation in [Freecodecamp](https://www.freecodecamp.org/news/javascript-timing-events-settimeout-and-setinterval/)
+7. Images from [Unsplash](https://unsplash.com/)
