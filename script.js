@@ -10,7 +10,7 @@ let cardTwo = ""//To temporaily save the second card object that was clicked
 let showAttemptsLeft = document.querySelector(".attempts_left");//Setup of the Attempts left calc and display inspired by the video referenced in 1
 showAttemptsLeft.innerHTML = "5";
 let gamerName = localStorage.getItem("gamerName");//Researched how to utilized the localStorage function by watching video referenced in 4
-
+// console.log(gamerName);
 
 //Create the pairs of cards in an array of objects; Watched video referenced in 1
 //a. Create all possible options of cards
@@ -86,8 +86,6 @@ if (cardsTurned === 12){
     window.alert(`${gamerName}, You've Won!`)
     } 
 }
-
-
 function matchCards(){
     if(cardOne.src === cardTwo.src){
         cardOne.classList.replace("active", "matched");
@@ -102,12 +100,12 @@ function matchCards(){
         let attemptsLeft = 5;
         attemptsLeft -= unsuccessfulAttempts;
         showAttemptsLeft.innerHTML=`${attemptsLeft}`; 
-        // if (unsuccessfulAttempts >=5){
-        //         window.alert("Sorry, but that's too many attempts. Try again!")
-        //         window.location.reload();
+        if (unsuccessfulAttempts >=5){
+                window.alert("Sorry, but that's too many attempts. Try again!")
+                window.location.reload();
 }
 }
-// }
+}
 //PART 4: RESTART GAME OR EXIT
 function exitGame(){
     window.location.href = "./index.html"
