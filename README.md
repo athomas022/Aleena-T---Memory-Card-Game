@@ -63,9 +63,9 @@ g. If cardsTurned === 12, then the you'd won alert with the gamer's entered name
 
 
 ### Unresolved Problems:
-1. The last card before a win or a try again alert will flip after the win or try again prompt.
+1. The last card before a win or a try again alert will flip after the win or try again prompt (due to the alert).
 2. It is not mobile friendly yet.
-3. Did not blur the background on the gaming page.
+3. Did not blur the background on the landing page.
 
 ### Unresolved Stretch Goals:
 1. Create Levels to the game where as the levels progress:
@@ -75,7 +75,7 @@ g. If cardsTurned === 12, then the you'd won alert with the gamer's entered name
 3. At the beginning of the game, have a "walk-through" demo instead of instructions.
 4. Do away with the 2 Javascript files (i.e., merge them into one, do away with localStorage and utilize the hide and show toggle on the different containers to navigate to the game page.
 5. Add text (for instructions) as a hover event over the buttons and the cards to further help the gamer navigate the game.
-6. Create containers instead for the alerts (particularly the win alert or try again alert with the background of page blurred)
+6. Create display messages instead of the alerts for the win alert or try again alert.
 
 ## References
 1. Watched video on [YouTube](https://www.youtube.com/watch?v=xWdkt6KSirw)  
